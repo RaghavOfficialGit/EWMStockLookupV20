@@ -1,0 +1,40 @@
+{
+  "name": "sap-ewm-stock-lookup",
+  "version": "1.0.0",
+  "description": "SAP BTP CAP Application for EWM Warehouse Physical Stock Lookup",
+  "repository": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "@sap/cds-dk": "^7",
+    "@sap-cloud-sdk/http-client": "^3",
+    "@sap-cloud-sdk/connectivity": "^3",
+    "@sap-cloud-sdk/resilience": "^3",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@sap/ux-specification": "latest"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch": "cds watch",
+    "build": "cds build --production"
+  },
+  "cds": {
+    "requires": {
+      "EWM_HMF": {
+        "kind": "rest",
+        "credentials": {
+          "destination": "EWM_HMF"
+        }
+      }
+    },
+    "features": {
+      "odata_new_parser": true
+    }
+  },
+  "sapux": [
+    "app/stock-lookup"
+  ]
+}

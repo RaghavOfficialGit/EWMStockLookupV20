@@ -1,0 +1,26 @@
+{
+  "build": {
+    "target": ".",
+    "tasks": [
+      {
+        "for": "node-cf",
+        "src": "srv"
+      },
+      {
+        "for": "hana",
+        "src": "db"
+      }
+    ]
+  },
+  "odata": {
+    "version": "v4"
+  },
+  "requires": {
+    "[production]": {
+      "auth": "xsuaa"
+    },
+    "[development]": {
+      "auth": "dummy"
+    }
+  }
+}
