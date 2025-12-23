@@ -1,34 +1,90 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SAP Fiori-inspired styles */
+
+:root {
+  --sap-shell-header: #354A5F;
+  --sap-brand: #0A6ED1;
+  --sap-brand-hover: #085CB3;
+  --sap-positive: #107E3E;
+  --sap-negative: #BB0000;
+  --sap-critical: #E9730C;
+  --sap-neutral: #6A6D70;
+  --sap-background: #F7F7F7;
+  --sap-surface: #FFFFFF;
+  --sap-border: #E5E5E5;
+  --sap-text: #32363A;
+  --sap-text-secondary: #6A6D70;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+body {
+  font-family: '72', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--sap-background);
+  color: var(--sap-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+/* Custom scrollbar for tables */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px;
 }
 
-.App-link {
-    color: #61dafb;
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Input focus states */
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(10, 110, 209, 0.2);
+}
+
+/* Button transitions */
+button {
+  transition: all 0.15s ease-in-out;
+}
+
+/* Table row hover effect */
+tr.hover\:bg-blue-50:hover {
+  background-color: rgba(10, 110, 209, 0.05);
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid-cols-5 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-cols-5 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
