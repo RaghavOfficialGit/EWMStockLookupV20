@@ -7,14 +7,12 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^7",
-    "@sap/cds-dk": "^7",
     "@sap-cloud-sdk/http-client": "^3",
     "@sap-cloud-sdk/connectivity": "^3",
-    "@sap-cloud-sdk/resilience": "^3",
     "express": "^4"
   },
   "devDependencies": {
-    "@sap/ux-specification": "latest"
+    "@sap/cds-dk": "^7"
   },
   "scripts": {
     "start": "cds-serve",
@@ -23,15 +21,14 @@
   },
   "cds": {
     "requires": {
-      "EWM_HMF": {
-        "kind": "rest",
-        "credentials": {
-          "destination": "EWM_HMF"
+      "auth": {
+        "[production]": {
+          "strategy": "JWT"
+        },
+        "[development]": {
+          "strategy": "dummy"
         }
       }
-    },
-    "features": {
-      "odata_new_parser": true
     }
   },
   "sapux": [
