@@ -1,6 +1,10 @@
 {
-  "welcomeFile": "/stock-lookup/index.html",
+  "welcomeFile": "/index.html",
   "authenticationMethod": "route",
+  "logout": {
+    "logoutEndpoint": "/logout",
+    "logoutPage": "/"
+  },
   "routes": [
     {
       "source": "^/stock/(.*)$",
@@ -10,15 +14,9 @@
       "csrfProtection": false
     },
     {
-      "source": "^/stock-lookup/(.*)$",
-      "target": "/$1",
-      "localDir": "stock-lookup/webapp",
-      "authenticationType": "xsuaa"
-    },
-    {
       "source": "^(.*)$",
       "target": "$1",
-      "service": "html5-apps-repo-rt",
+      "localDir": "stock-lookup/webapp",
       "authenticationType": "xsuaa"
     }
   ]
