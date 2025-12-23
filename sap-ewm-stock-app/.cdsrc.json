@@ -1,16 +1,6 @@
 {
   "build": {
-    "target": ".",
-    "tasks": [
-      {
-        "for": "node-cf",
-        "src": "srv"
-      },
-      {
-        "for": "hana",
-        "src": "db"
-      }
-    ]
+    "target": "."
   },
   "odata": {
     "version": "v4"
